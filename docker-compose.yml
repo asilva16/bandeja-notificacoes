@@ -1,0 +1,24 @@
+version: '3.8'
+
+services:
+  backend:
+    build:
+      context: ./back
+    container_name: backend-socketio
+    ports:
+      - "3000:3000"
+    environment:
+      - DB_HOST=
+      - DB_USER=
+      - DB_PASSWORD=
+      - DB_NAME=
+      - DB_PORT=
+    restart: always
+
+  frontend:
+    build:
+      context: ./front
+    container_name: frontend-react
+    ports:
+      - "8080:80"
+    restart: always 
